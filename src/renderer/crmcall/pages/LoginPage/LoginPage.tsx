@@ -3,18 +3,14 @@ import React, { useState } from 'react';
 import { ReactComponent as ImgLogin } from '@renderer/resources/images/img_login.svg';
 import { ReactComponent as LogoCRMCall } from '@renderer/resources/images/logo_crm_call.svg';
 
-import {
-  Button,
-  Container,
-  Stack,
-  Typography,
-  useTheme,
-} from '@mui/material';
+import { Button, Container, Stack, Typography, useTheme } from '@mui/material';
 import LabeledCheckbox from '@renderer/crmcall/components/Checkbox/LabeledCheckbox';
 import EnhancedTextField from '@renderer/crmcall/components/TextField/EnhancedTextField';
+import useAuth from '@renderer/base/app/auth/AuthProvider';
 
 const LoginPage = () => {
   const theme = useTheme();
+  const auth = useAuth();
 
   const [domain, setDomain] = useState('');
   const [userID, setUserID] = useState('');
@@ -42,7 +38,9 @@ const LoginPage = () => {
     setIsAutoLogin(checked);
   };
 
-  const handleLogin = () => {};
+  const handleLogin = () => {
+    auth.login();
+  };
 
   return (
     <Stack

@@ -1,0 +1,77 @@
+.h-electron-drag {
+  -webkit-app-region: drag;
+}
+
+.h-electron-nodrag {
+  -webkit-app-region: no-drag;
+}
+
+.h-flex-col {
+  display: flex;
+  flex-direction: column;
+}
+
+.h-flex-row {
+  display: flex;
+  flex-direction: row;
+}
+
+.h-fill-h {
+  height: 100%;
+}
+
+.h-fill-w {
+  width: 100%;
+}
+
+.h-flex-wrap {
+  flex-wrap: wrap;
+}
+
+.h-items-center {
+  align-items: center;
+}
+
+.h-content-center {
+  align-content: center;
+}
+
+.h-just-center {
+  justify-content: center;
+}
+
+.h-flex-center {
+  align-items: center;
+  justify-content: center;
+}
+
+.h-center-between {
+  align-items: center;
+  justify-content: space-between;
+}
+
+@for $i from 1 through 20 {
+  .h-gap-#{$i} {
+    gap: #{$i}px;
+  }
+
+  .h-cgap-#{$i} {
+    column-gap: #{$i}px;
+  }
+
+  .h-rgap-#{$i} {
+    row-gap: #{$i}px;
+  }
+}
+
+@for $i from 1 through 20 {
+  .h-px-#{$i} {
+    padding-left: #{$i}px;
+    padding-right: #{$i}px;
+  }
+
+  .h-py-#{$i} {
+    padding-top: #{$i}px;
+    padding-bottom: #{$i}px;
+  }
+}
