@@ -4,12 +4,14 @@ import { ReactComponent as ImgLogin } from '@renderer/resources/images/img_login
 import { ReactComponent as LogoCRMCall } from '@renderer/resources/images/logo_crm_call.svg';
 
 import {
+  Button,
   Container,
   Stack,
-  TextField,
   Typography,
   useTheme,
 } from '@mui/material';
+import LabeledCheckbox from '@renderer/crmcall/components/Checkbox/LabeledCheckbox';
+import EnhancedTextField from '@renderer/crmcall/components/TextField/EnhancedTextField';
 
 const LoginPage = () => {
   const theme = useTheme();
@@ -18,8 +20,7 @@ const LoginPage = () => {
   const [userID, setUserID] = useState('');
   const [password, setPassword] = useState('');
   const [extendNumber, setExtendNumber] = useState('');
-  const [autologin, setAutoLogin] = useState(false);
-
+  const [isAutoLogin, setIsAutoLogin] = useState(false);
 
   const handleChangeDomain = (nDomain: string) => {
     setDomain(nDomain);
@@ -36,6 +37,12 @@ const LoginPage = () => {
   const handleChangeExtendNumber = (nExtendNumber: string) => {
     setExtendNumber(nExtendNumber);
   };
+
+  const handleChangeAutoLogin = (checked: boolean) => {
+    setIsAutoLogin(checked);
+  };
+
+  const handleLogin = () => {};
 
   return (
     <Stack
@@ -79,91 +86,71 @@ const LoginPage = () => {
             width: '100%',
           }}
         >
-          <LogoCRMCall style={{ width: 102, marginBottom: 10 }} />
+          <LogoCRMCall style={{ width: 102, height: 102, marginBottom: 10 }} />
           <Typography variant="h4" component="h2">
             Welcome to
             <b> CRM Call</b>
           </Typography>
-          <TextField
-            fullWidth
-            size="small"
-            margin="normal"
-            required
+          <EnhancedTextField
             id="domain"
             name="domain"
             label="Domain"
             value={domain}
-            onChange={(event) => {
-              handleChangeDomain(event.target.value);
-            }}
-            placeholder=""
-            sx={{
-              '& .MuiOutlinedInput-root': {
-                p: '0px',
-                height: '40px',
-              },
+            onChange={(value) => {
+              handleChangeDomain(value);
             }}
           />
-          <TextField
-            fullWidth
-            size="small"
-            margin="normal"
-            required
+          <EnhancedTextField
             id="userid"
             label={'User ID'}
             name="userid"
             value={userID}
-            onChange={(event) => {
-              handleChangeUserID(event.target.value);
-            }}
-            placeholder=""
-            sx={{
-              '& .MuiOutlinedInput-root': {
-                p: '0px',
-                height: '40px',
-              },
+            onChange={(value) => {
+              handleChangeUserID(value);
             }}
           />
-          <TextField
-            fullWidth
-            size="small"
-            margin="normal"
-            required
+          <EnhancedTextField
             id="password"
             name="password"
             label={'Password'}
             value={password}
-            onChange={(event) => {
-              handleChangePassword(event.target.value);
+            onChange={(value) => {
+              handleChangePassword(value);
             }}
-            placeholder=""
-            sx={{
-              '& .MuiOutlinedInput-root': {
-                p: '0px',
-                height: '40px',
-              },
-            }}
+            obcureText
           />
-          <TextField
-            fullWidth
-            size="small"
-            margin="normal"
-            required
+          <EnhancedTextField
             id="extendnumber"
             label={'Extend Number'}
             name="extendnumber"
             value={extendNumber}
-            onChange={(event) => {
-              handleChangeExtendNumber(event.target.value);
-            }}
-            placeholder=""
-            sx={{
-              '& .MuiOutlinedInput-root': {
-                p: '0px',
-                height: '40px',
-              },
+            onChange={(value) => {
+              handleChangeExtendNumber(value);
             }}
           />
+          <div
+            style={{
+              width: '100%',
+            }}
+          >
+            <LabeledCheckbox
+              value={isAutoLogin}
+              label="Auto Login"
+              onChange={handleChangeAutoLogin}
+            />
+          </div>
+          <Button
+            variant="contained"
+            color="primary"
+            onClick={handleLogin}
+            fullWidth
+            sx={{
+              height: '50px',
+              marginTop: 3,
+            }}
+          >
+            LOGIN
+          </Button>
         </Stack>
       </Container>
     </Stack>
