@@ -38,6 +38,7 @@ const DialogContent = (props: {
 }) => {
   const { onClose, defaultTab = 'general' } = props;
   const theme = useTheme();
+  const { t } = useTranslation();
 
   const [selectedMenu, setSelectedMenu] = useState<SettingTabName>(defaultTab);
 
@@ -124,13 +125,13 @@ const DialogContent = (props: {
           >
             <CRMTabButton
               selected={selectedMenu === 'general'}
-              title={'General'}
+              title={t('general')}
               onClick={(event) => handleListItemClick(event, 'general')}
             />
 
             <CRMTabButton
               selected={selectedMenu === 'information'}
-              title={'Information'}
+              title={t('information')}
               onClick={(event) => handleListItemClick(event, 'information')}
             />
           </div>

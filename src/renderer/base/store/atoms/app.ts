@@ -1,7 +1,7 @@
 import { DefaultAppConfigProps } from '@renderer/base/types/app';
 import { atom } from 'recoil';
 
-const defaultAppConfig: DefaultAppConfigProps = {
+export const defaultAppConfig: DefaultAppConfigProps = {
   i18n: 'en',
   mode: 'light',
   callDockPlacement: 'center',
