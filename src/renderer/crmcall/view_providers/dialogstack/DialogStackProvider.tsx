@@ -1,7 +1,7 @@
 import { ReactNode, createContext, useContext, useState } from 'react';
 import { DIALOG_COMPONENTS_CONFIG } from './componentConfig';
 
-export type TCDialogType = | 'APP_SETTING_DIALOG';
+export type TCDialogType = 'APP_SETTING_DIALOG' | 'CALL_DETAIL_DIALOG';
 
 export type TCDialogProps<T = any> = {
   /**

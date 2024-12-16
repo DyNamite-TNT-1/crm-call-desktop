@@ -52,7 +52,6 @@ const CallDockPlacementSetting = () => {
           onChange={(val) =>
             handleChangeCallDockPlacement(val.keyName as CallDockPlacement)
           }
-          needConfirmBeforeChange
         />
       </div>
     </div>

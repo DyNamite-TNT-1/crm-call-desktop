@@ -93,27 +93,33 @@ const LoginPage = () => {
             id="domain"
             name="domain"
             label="Domain"
+            required
+            margin="normal"
             value={domain}
-            onChange={(value) => {
-              handleChangeDomain(value);
+            onChange={(event) => {
+              handleChangeDomain(event.target.value);
             }}
           />
           <EnhancedTextField
             id="userid"
             label={'User ID'}
             name="userid"
+            required
+            margin="normal"
             value={userID}
-            onChange={(value) => {
-              handleChangeUserID(value);
+            onChange={(event) => {
+              handleChangeUserID(event.target.value);
             }}
           />
           <EnhancedTextField
             id="password"
             name="password"
             label={'Password'}
+            required
+            margin="normal"
             value={password}
-            onChange={(value) => {
-              handleChangePassword(value);
+            onChange={(event) => {
+              handleChangePassword(event.target.value);
             }}
             obcureText
           />
@@ -121,9 +127,11 @@ const LoginPage = () => {
             id="extendnumber"
             label={'Extend Number'}
             name="extendnumber"
+            required
+            margin="normal"
             value={extendNumber}
-            onChange={(value) => {
-              handleChangeExtendNumber(value);
+            onChange={(event) => {
+              handleChangeExtendNumber(event.target.value);
             }}
           />
           <div

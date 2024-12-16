@@ -48,7 +48,6 @@ export const LanguageSetting = () => {
             return value.keyName === language;
           })}
           onChange={(val) => onChangeLanguage(val.keyName)}
-          needConfirmBeforeChange
         />
       </div>
     </div>
