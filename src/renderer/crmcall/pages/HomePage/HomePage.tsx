@@ -1,10 +1,12 @@
 import React from 'react';
-import { SettingsOutlined } from '@mui/icons-material';
+import { SettingsOutlined, Logout } from '@mui/icons-material';
 import { IconButton } from '@mui/material';
 import useDialogStack from '@renderer/crmcall/view_providers/dialogstack/DialogStackProvider';
+import useAuth from '@renderer/base/app/auth/AuthProvider';
 
 const HomePage = () => {
   const { addDialog } = useDialogStack();
+  const { logout } = useAuth();
 
   const handleOpenAppSetting = () => {
     addDialog({
@@ -12,12 +14,18 @@ const HomePage = () => {
     });
   };
 
+  const handleLogout = () => {
+    logout();
+  };
+
   return (
     <div>
       <IconButton onClick={handleOpenAppSetting}>
         <SettingsOutlined />
       </IconButton>
-      {/* TODO - Implement logout item here */}
+      <IconButton onClick={handleLogout} >
+        <Logout />
+      </IconButton>
     </div>
   );
 };
