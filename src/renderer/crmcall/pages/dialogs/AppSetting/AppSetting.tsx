@@ -8,6 +8,7 @@ import React, { useMemo, useState } from 'react';
 import Information from './tabs/Information/Information';
 import General from './tabs/General/General';
 import { AppSettingProvider } from './AppSettingProvider';
+import { useTranslation } from 'react-i18next';
 
 type SettingTabName = 'general' | 'information';
 
@@ -144,6 +145,7 @@ const DialogContent = (props: {
             borderLeftWidth: 1,
             borderLeftStyle: 'solid',
             overflow: 'auto',
+            minHeight: '250px',
           }}
         >
           {renderContent(selectedMenu)}

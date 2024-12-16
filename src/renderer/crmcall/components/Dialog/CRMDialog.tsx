@@ -68,7 +68,7 @@ const CRMDialog = (props: Props) => {
         <div
           className="h-flex-row h-center-between"
           style={{
-            height: '48px',
+            height: '24px',
             padding: '12px',
             backgroundColor: theme.palette.action.hover,
           }}
