@@ -108,7 +108,7 @@ const configuration: webpack.Configuration = {
      */
     new webpack.EnvironmentPlugin({
       NODE_ENV: 'production',
-      DEBUG_PROD: false,
+      DEBUG_PROD: 'false',
     }),
 
     new MiniCssExtractPlugin({
@@ -122,7 +122,7 @@ const configuration: webpack.Configuration = {
 
     new HtmlWebpackPlugin({
       filename: 'index.html',
-      template: path.join(webpackPaths.srcRendererPath, 'index.ejs'),
+      template: path.join(webpackPaths.srcRendererPath, 'index.html'),
       minify: {
         collapseWhitespace: true,
         removeAttributeQuotes: true,
