@@ -1,7 +1,10 @@
 import { ReactNode, createContext, useContext, useState } from 'react';
 import { DIALOG_COMPONENTS_CONFIG } from './componentConfig';
 
-export type EnhancedDialogType = 'APP_SETTING_DIALOG' | 'CALL_DETAIL_DIALOG';
+export type EnhancedDialogType =
+  | 'APP_SETTING_DIALOG'
+  | 'CALL_DETAIL_DIALOG'
+  | 'LOGOUT_DIALOG';
 
 export type EnhancedDialogProps<T = any> = {
   /**

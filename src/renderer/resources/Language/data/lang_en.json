@@ -1,4 +1,8 @@
 {
   "general": "General",
-  "information": "Information"
+  "information": "Information",
+  "logout": "Logout",
+  "clear_logout": "Clear and logout",
+  "do_you_want_logout": "Do you want logout?",
+  "clear_logout_message": "Clear and logout will clear all user information and file cache"
 }

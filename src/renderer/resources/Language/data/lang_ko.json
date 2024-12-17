@@ -1,4 +1,8 @@
 {
   "general": "일반",
-  "information": "정보"
+  "information": "정보",
+  "logout": "로그아웃",
+  "clear_logout": "모든 정보 지우고 로그아웃",
+  "do_you_want_logout": "로그아웃 하시겠습니까?",
+  "clear_logout_message": "정보 제거 및 로그 아웃은 모든 사용자 정보 및 캐시 데이터를 제거합니다"
 }

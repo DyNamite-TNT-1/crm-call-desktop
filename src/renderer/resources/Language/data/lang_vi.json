@@ -1,4 +1,8 @@
 {
   "general": "Chung",
-  "information": "Thông tin"
+  "information": "Thông tin",
+  "logout": "Đăng xuất",
+  "clear_logout": "Xóa và đăng xuất",
+  "do_you_want_logout": "Bạn có muốn thoát tài khoản?",
+  "clear_logout_message": "Xoá và thoát tài khoản sẽ xoá hết thông tin lưu tài khoản và file tạm"
 }

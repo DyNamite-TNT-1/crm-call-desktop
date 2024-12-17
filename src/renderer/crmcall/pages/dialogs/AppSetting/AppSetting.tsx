@@ -1,4 +1,4 @@
-import { Button, Divider, Stack, Typography, useTheme } from '@mui/material';
+import { Button, Stack, Typography, useTheme } from '@mui/material';
 import { CRMTabButton } from '@renderer/crmcall/components/CRMTabButton';
 import CRMDialog from '@renderer/crmcall/components/Dialog/CRMDialog';
 import useDialogStack, {
@@ -82,18 +82,11 @@ const DialogContent = (props: {
       <Stack
         alignItems="center"
         sx={{
-          width: '100%',
+          borderTop: `1px solid ${theme.palette.divider}`,
+          p: 1,
         }}
       >
-        <Divider style={{ width: '100%' }} />
-        <Button
-          color="primary"
-          variant="contained"
-          onClick={handleCloseDialog}
-          sx={{
-            my: 1.5,
-          }}
-        >
+        <Button color="primary" variant="contained" onClick={handleCloseDialog}>
           <Typography variant="body1">Save</Typography>
         </Button>
       </Stack>
