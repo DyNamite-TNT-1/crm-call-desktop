@@ -91,6 +91,7 @@
     }
   },
   "dependencies": {
+    "@ctrl/tinycolor": "^4.1.0",
     "@electron/notarize": "^2.3.2",
     "@emotion/react": "^11.14.0",
     "@emotion/styled": "^11.14.0",

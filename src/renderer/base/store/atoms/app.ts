@@ -4,6 +4,7 @@ import { atom } from 'recoil';
 export const defaultAppConfig: DefaultAppConfigProps = {
   i18n: 'en',
   mode: 'light',
+  presetColor: 'default',
   callDockPlacement: 'center',
 };
 
