@@ -10,14 +10,8 @@ const AuthGuard = (props: { children: React.ReactNode }) => {
   const { children } = props;
   const { isLoggedIn, isInitialized } = useAuth();
 
-  const [loading, setLoading] = useState(true);
   const location = useLocation();
   const navigate = useNavigate();
-
-  useMounted(() => {
-    navigate('/', { replace: true });
-    setLoading(false);
-  });
 
   useEffect(() => {
     if (!isLoggedIn && isInitialized) {
@@ -31,7 +25,7 @@ const AuthGuard = (props: { children: React.ReactNode }) => {
     }
   }, [isLoggedIn, isInitialized, location.pathname]);
 
-  return loading ? <></> : children;
+  return children;
 };
 
 export default AuthGuard;

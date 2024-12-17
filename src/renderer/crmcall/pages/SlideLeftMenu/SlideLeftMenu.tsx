@@ -18,10 +18,18 @@ import { ReactComponent as IcContact } from '@renderer/resources/images/ic_conta
 import { ReactComponent as IcAddHistory } from '@renderer/resources/images/ic_add_history.svg';
 import { ReactComponent as IcSetting } from '@renderer/resources/images/ic_setting.svg';
 import { ReactComponent as IcLogout } from '@renderer/resources/images/ic_logout.svg';
+import {
+  kRouteCustomerList,
+  kRouteMissedCallList,
+  kRouteSearch,
+  SLIDE_LEFT_MENU_WIDTH,
+} from '@renderer/crmcall/layouts/config';
+import { useNavigate } from 'react-router-dom';
 
-const Drawer = () => {
+const SlideLeftMenu = () => {
   const theme = useTheme();
   const { t } = useTranslation();
+  const navigate = useNavigate();
 
   const { addDialog } = useDialogStack();
 
@@ -30,22 +38,22 @@ const Drawer = () => {
     return [
       { type: 'avatar', key: 'avatar', src: '' },
       {
-        key: 'missed_call',
+        key: kRouteMissedCallList,
         icon: <IcMissedCall style={{ color: 'white' }} />,
         title: 'tooltip_missed_call_tab',
       },
       {
-        key: 'search',
+        key: kRouteSearch,
         icon: <IcSearch style={{ color: 'white' }} />,
         title: 'tooltip_search_tab',
       },
       {
-        key: 'contacts',
+        key: kRouteCustomerList,
         icon: <IcContact style={{ color: 'white' }} />,
         title: 'tooltip_contacts_tab',
       },
     ];
-  }, [t]);
+  }, []);
 
   const bottomItems = useMemo(() => {
     return [
@@ -74,6 +82,10 @@ const Drawer = () => {
       handleOpenAppSetting();
     } else if (key == 'logout') {
       handleLogout();
+    } else {
+      navigate({
+        pathname: '/main/' + key,
+      });
     }
   };
 
@@ -103,7 +115,7 @@ const Drawer = () => {
           theme.palette.mode == 'light'
             ? theme.palette.primary.main
             : theme.palette.background.paper,
-        width: '60px',
+        width: SLIDE_LEFT_MENU_WIDTH,
       }}
     >
       {/* Top Section */}
@@ -115,11 +127,11 @@ const Drawer = () => {
         {topItems.map((item, index) => {
           const key = item.key;
           if (item.type === 'avatar') {
-            return <AvatarDrawer key={key} src={item.src} />;
+            return <SLAvatar key={key} src={item.src} />;
           }
 
           return (
-            <ButtonDrawer
+            <SLButton
               key={key}
               title={t(item.title!)}
               onClick={() => {
@@ -127,7 +139,7 @@ const Drawer = () => {
               }}
             >
               {item.icon!}
-            </ButtonDrawer>
+            </SLButton>
           );
         })}
       </List>
@@ -140,7 +152,7 @@ const Drawer = () => {
         {bottomItems.map((item, index) => {
           const key = item.key;
           return (
-            <ButtonDrawer
+            <SLButton
               key={key}
               title={t(item.title)}
               onClick={() => {
@@ -148,32 +160,17 @@ const Drawer = () => {
               }}
             >
               {item.icon}
-            </ButtonDrawer>
+            </SLButton>
           );
         })}
-        {/* <ButtonDrawer
-          onClick={handleOpenAddCallHistory}
-          title={t('tooltip_add_history_tab')}
-        >
-          <IcAddHistory style={{ color: 'white' }} />
-        </ButtonDrawer>
-        <ButtonDrawer
-          onClick={handleOpenAppSetting}
-          title={t('tooltip_setting_tab')}
-        >
-          <IcSetting style={{ color: 'white' }} />
-        </ButtonDrawer>
-        <ButtonDrawer onClick={handleLogout} title={t('tooltip_logout_tab')}>
-          <IcLogout style={{ color: 'white' }} />
-        </ButtonDrawer> */}
       </List>
     </div>
   );
 };
 
-export default Drawer;
+export default SlideLeftMenu;
 
-const AvatarDrawer = (props: { src: string }) => {
+const SLAvatar = (props: { src: string }) => {
   const { src } = props;
   return (
     <ListItem key={'avatar'} disablePadding>
@@ -181,7 +178,7 @@ const AvatarDrawer = (props: { src: string }) => {
         className="h-flex-center"
         sx={{
           height: '60px',
-          width: '60px',
+          width: SLIDE_LEFT_MENU_WIDTH,
           display: 'flex',
         }}
       >
@@ -191,7 +188,7 @@ const AvatarDrawer = (props: { src: string }) => {
   );
 };
 
-const ButtonDrawer = (props: {
+const SLButton = (props: {
   title?: string;
   onClick?: React.MouseEventHandler<HTMLDivElement>;
   children: React.ReactElement;
@@ -204,7 +201,7 @@ const ButtonDrawer = (props: {
         <ListItemButton
           className="h-just-center"
           onClick={onClick}
-          sx={{ height: '60px', width: '60px' }}
+          sx={{ height: '60px', width: SLIDE_LEFT_MENU_WIDTH }}
         >
           {children}
         </ListItemButton>
