@@ -54,7 +54,7 @@ const LoginPage = () => {
         sx={{
           display: 'flex',
           alignItems: 'center',
-          flexShrink: 5,
+          margin: 0,
           justifyContent: 'center',
           height: '100%',
           backgroundColor:
