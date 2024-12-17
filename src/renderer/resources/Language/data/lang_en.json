@@ -1,4 +1,10 @@
 {
+  "tooltip_missed_call_tab": "Missed Call",
+  "tooltip_search_tab": "Search",
+  "tooltip_contacts_tab": "Customer List",
+  "tooltip_setting_tab": "Setting",
+  "tooltip_add_history_tab": "Adding call history manually",
+  "tooltip_logout_tab": "Logout",
   "general": "General",
   "information": "Information",
   "logout": "Logout",

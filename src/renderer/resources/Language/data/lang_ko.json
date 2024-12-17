@@ -1,4 +1,10 @@
 {
+  "tooltip_missed_call_tab": "부재중 전화",
+  "tooltip_search_tab": "검색",
+  "tooltip_contacts_tab": " 고객명",
+  "tooltip_add_history_tab": "통화 이력 수동 추가",
+  "tooltip_setting_tab": "설정",
+  "tooltip_logout_tab": "로그아웃",
   "general": "일반",
   "information": "정보",
   "logout": "로그아웃",

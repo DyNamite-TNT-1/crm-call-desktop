@@ -1,4 +1,10 @@
 {
+  "tooltip_missed_call_tab": "Cuộc gọi nhỡ",
+  "tooltip_search_tab": "Tìm kiếm lịch sử cuộc gọi",
+  "tooltip_contacts_tab": "Danh sách khách hàng",
+  "tooltip_add_history_tab": "Thêm lịch sử cuộc gọi",
+  "tooltip_setting_tab": "Cài đặt",
+  "tooltip_logout_tab": "Thoát tài khoản",
   "general": "Chung",
   "information": "Thông tin",
   "logout": "Đăng xuất",
