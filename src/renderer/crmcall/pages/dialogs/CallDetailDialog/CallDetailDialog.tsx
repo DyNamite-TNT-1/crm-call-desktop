@@ -1,13 +1,13 @@
 import CRMCallView from '@renderer/crmcall/components/CRMCallView/CRMCallView';
 import CRMDialog from '@renderer/crmcall/components/Dialog/CRMDialog';
 import useDialogStack, {
-  TCDialogProps,
+  EnhancedDialogProps,
 } from '@renderer/crmcall/view_providers/dialogstack/DialogStackProvider';
 import React from 'react';
 
 type Props = {};
 
-export const CallDetailDialog = (props: TCDialogProps<Props>) => {
+export const CallDetailDialog = (props: EnhancedDialogProps<Props>) => {
   const { dialogKey, onClose, additionalProps } = props;
   const { removeDialog } = useDialogStack();
 
@@ -24,7 +24,6 @@ export const CallDetailDialog = (props: TCDialogProps<Props>) => {
 };
 
 const CallDetailDialogContent = ({ onClose }: { onClose: () => void }) => {
-
   return (
     <CRMDialog
       title={'Call'}

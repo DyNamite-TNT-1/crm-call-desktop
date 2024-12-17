@@ -2,7 +2,7 @@ import { Button, Divider, Stack, Typography, useTheme } from '@mui/material';
 import { CRMTabButton } from '@renderer/crmcall/components/CRMTabButton';
 import CRMDialog from '@renderer/crmcall/components/Dialog/CRMDialog';
 import useDialogStack, {
-  TCDialogProps,
+  EnhancedDialogProps,
 } from '@renderer/crmcall/view_providers/dialogstack/DialogStackProvider';
 import React, { useMemo, useState } from 'react';
 import Information from './tabs/Information/Information';
@@ -16,7 +16,7 @@ type Props = {
   defaultTab: SettingTabName;
 };
 
-export const AppSettingDialog = (props: TCDialogProps<Props>) => {
+export const AppSettingDialog = (props: EnhancedDialogProps<Props>) => {
   const { dialogKey, onClose, additionalProps } = props;
   const { removeDialog } = useDialogStack();
   const { defaultTab } = additionalProps || {};

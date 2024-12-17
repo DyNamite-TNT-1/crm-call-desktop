@@ -1,15 +1,15 @@
 import { ReactNode, createContext, useContext, useState } from 'react';
 import { DIALOG_COMPONENTS_CONFIG } from './componentConfig';
 
-export type TCDialogType = 'APP_SETTING_DIALOG' | 'CALL_DETAIL_DIALOG';
+export type EnhancedDialogType = 'APP_SETTING_DIALOG' | 'CALL_DETAIL_DIALOG';
 
-export type TCDialogProps<T = any> = {
+export type EnhancedDialogProps<T = any> = {
   /**
    * dialogKey to render multiple dialogs.
    * This is being set automatically unless specified manually.
    */
   dialogKey?: number | string;
-  dialogType: TCDialogType;
+  dialogType: EnhancedDialogType;
   /**
    * On Close callback.
    */
@@ -21,25 +21,25 @@ export type TCDialogProps<T = any> = {
 };
 
 type DialogStackContextType = {
-  dialogsPack: TCDialogProps[];
+  dialogsPack: EnhancedDialogProps[];
   /**
    * To add a dialog.
    * @param dialog
    * @returns
    */
-  addDialog: (dialog: TCDialogProps) => void;
+  addDialog: (dialog: EnhancedDialogProps) => void;
   /**
    * To remove a dialog.
    * @param dialog
    * @returns
    */
-  removeDialog: (dialog: TCDialogProps['dialogKey']) => void;
+  removeDialog: (dialog: EnhancedDialogProps['dialogKey']) => void;
   /**
    * To remove dialogs.
    * @param dialogs
    * @returns
    */
-  removeDialogs: (dialogs: TCDialogProps['dialogKey'][]) => void;
+  removeDialogs: (dialogs: EnhancedDialogProps['dialogKey'][]) => void;
 };
 
 const DialogStackContext = createContext<DialogStackContextType>({
@@ -51,9 +51,9 @@ const DialogStackContext = createContext<DialogStackContextType>({
 
 export const DialogStackProvider = (props: { children: ReactNode }) => {
   const { children } = props;
-  const [dialogsPack, setDialogsPack] = useState<TCDialogProps[]>([]);
+  const [dialogsPack, setDialogsPack] = useState<EnhancedDialogProps[]>([]);
 
-  const addDialog = (dialog: TCDialogProps) => {
+  const addDialog = (dialog: EnhancedDialogProps) => {
     const dialogKey = dialog.dialogKey || Date.now();
 
     // Prevent duplicated dialogs
@@ -67,13 +67,13 @@ export const DialogStackProvider = (props: { children: ReactNode }) => {
     ]);
   };
 
-  const removeDialog = (dialogKey: TCDialogProps['dialogKey']) => {
+  const removeDialog = (dialogKey: EnhancedDialogProps['dialogKey']) => {
     setDialogsPack((prev) => [
       ...prev.filter((dialog) => dialog.dialogKey !== dialogKey),
     ]);
   };
 
-  const removeDialogs = (dialogKeys: TCDialogProps['dialogKey'][]) => {
+  const removeDialogs = (dialogKeys: EnhancedDialogProps['dialogKey'][]) => {
     setDialogsPack((prev) => [
       ...prev.filter((dialog) => !dialogKeys.includes(dialog.dialogKey)),
     ]);
@@ -95,7 +95,12 @@ export const DialogStackProvider = (props: { children: ReactNode }) => {
 
   return (
     <DialogStackContext.Provider
-      value={{ dialogsPack: dialogsPack, addDialog: addDialog, removeDialog, removeDialogs }}
+      value={{
+        dialogsPack: dialogsPack,
+        addDialog: addDialog,
+        removeDialog,
+        removeDialogs,
+      }}
     >
       {renderComponent()}
       {children}
