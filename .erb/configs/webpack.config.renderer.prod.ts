@@ -56,7 +56,19 @@ const configuration: webpack.Configuration = {
       },
       {
         test: /\.s?(a|c)ss$/,
-        use: [MiniCssExtractPlugin.loader, 'css-loader', 'sass-loader'],
+        use: [
+          MiniCssExtractPlugin.loader,
+          'css-loader',
+          {
+            loader: 'sass-loader',
+            options: {
+              api: 'modern',
+              sassOptions: {
+                // Your sass options
+              },
+            },
+          },
+        ],
         exclude: /\.module\.s?(c|a)ss$/,
       },
       // Fonts

@@ -79,8 +79,21 @@ const configuration: webpack.Configuration = {
         include: /\.module\.s?(c|a)ss$/,
       },
       {
+        //https://webpack.js.org/loaders/sass-loader/#api
         test: /\.s?css$/,
-        use: ['style-loader', 'css-loader', 'sass-loader'],
+        use: [
+          'style-loader',
+          'css-loader',
+          {
+            loader: 'sass-loader',
+            options: {
+              api: 'modern',
+              sassOptions: {
+                // Your sass options
+              },
+            },
+          },
+        ],
         exclude: /\.module\.s?(c|a)ss$/,
       },
       // Fonts
