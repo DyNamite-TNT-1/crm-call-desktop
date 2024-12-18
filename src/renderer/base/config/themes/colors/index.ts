@@ -218,18 +218,11 @@ export function generate(color: string, opts?: Opts): string[] {
 }
 
 const presetPrimaryColors: { [key: string]: string } = {
-  red: '#F5222D',
-  volcano: '#FA541C',
-  orange: '#FA8C16',
-  gold: '#FAAD14',
-  yellow: '#FADB14',
-  lime: '#A0D911',
-  green: '#52C41A',
-  cyan: '#13C2C2',
-  blue: '#0667BD', // blue: '#1890FF',
-  geekblue: '#2F54EB',
-  purple: '#722ED1',
-  magenta: '#EB2F96',
+  red: '#EB2727', // = rgba(235, 39, 39, 1)
+  gold: '#FFB137', // = rgba(255, 177, 55, 1)
+  green: '#0CAF60', // = rgba(12, 175, 96, 1)
+  cyan: '#41C9E2', // = rgba(65, 201, 226, 1)
+  blue: '#6895D2', // = rgba(104, 149, 210, 1)
   grey: '#666666',
 };
 

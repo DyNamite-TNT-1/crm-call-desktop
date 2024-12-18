@@ -15,5 +15,4 @@ export type PaletteThemeProps = {
   warning: SimplePaletteColorOptions;
   info: SimplePaletteColorOptions;
   success: SimplePaletteColorOptions;
-  grey: PaletteColorOptions;
 };
