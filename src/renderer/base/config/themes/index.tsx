@@ -4,23 +4,32 @@ import {
   Theme,
   ThemeOptions,
   ThemeProvider,
+  TypographyVariantsOptions,
 } from '@mui/material/styles';
 import ComponentOverrides from './overrides';
 import useAppConfig from '@renderer/base/hook/common/useAppConfig';
 import { useMemo } from 'react';
 import Palette from './palette';
+import Typography from './typography';
+import { CssBaseline } from '@mui/material';
 
 export default function ThemeCustomization({
   children,
 }: {
   children: React.ReactNode;
 }) {
-  const { mode, presetColor } = useAppConfig();
+  const { mode, presetColor, fontFamily } = useAppConfig();
 
   const theme: Theme = useMemo<Theme>(
     () => Palette(mode, presetColor),
     [mode, presetColor],
   );
+
+  const themeTypography: TypographyVariantsOptions =
+    useMemo<TypographyVariantsOptions>(
+      () => Typography(mode, fontFamily, theme),
+      [mode, fontFamily],
+    );
 
   const themeOptions: ThemeOptions = useMemo(
     () => ({
@@ -34,8 +43,11 @@ export default function ThemeCustomization({
         },
       },
       palette: theme.palette,
+      typography: {
+        ...themeTypography,
+      },
     }),
-    [theme],
+    [theme, themeTypography],
   );
 
   const themes: Theme = createTheme(themeOptions);
@@ -44,7 +56,10 @@ export default function ThemeCustomization({
 
   return (
     <StyledEngineProvider injectFirst>
-      <ThemeProvider theme={themes}>{children}</ThemeProvider>;
+      <ThemeProvider theme={themes}>
+        <CssBaseline />
+        {children}
+      </ThemeProvider>
     </StyledEngineProvider>
   );
 }

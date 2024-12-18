@@ -1,0 +1,160 @@
+import * as createPalette from '@mui/material/styles';
+
+/// https://mui.com/material-ui/customization/typography/
+declare module '@mui/material/styles' {
+  interface TypographyVariants {
+    // h1
+    h1Thin: React.CSSProperties;
+    h1ExtraLight: React.CSSProperties;
+    h1Light: React.CSSProperties;
+    h1Normal: React.CSSProperties;
+    h1Medium: React.CSSProperties;
+    h1SemiBold: React.CSSProperties;
+    h1Bold: React.CSSProperties;
+    // h2
+    h2Thin: React.CSSProperties;
+    h2ExtraLight: React.CSSProperties;
+    h2Light: React.CSSProperties;
+    h2Normal: React.CSSProperties;
+    h2Medium: React.CSSProperties;
+    h2SemiBold: React.CSSProperties;
+    h2Bold: React.CSSProperties;
+    // h3
+    h3Thin: React.CSSProperties;
+    h3ExtraLight: React.CSSProperties;
+    h3Light: React.CSSProperties;
+    h3Normal: React.CSSProperties;
+    h3Medium: React.CSSProperties;
+    h3SemiBold: React.CSSProperties;
+    h3Bold: React.CSSProperties;
+    // h4
+    h4Thin: React.CSSProperties;
+    h4ExtraLight: React.CSSProperties;
+    h4Light: React.CSSProperties;
+    h4Normal: React.CSSProperties;
+    h4Medium: React.CSSProperties;
+    h4SemiBold: React.CSSProperties;
+    h4Bold: React.CSSProperties;
+    // h5
+    h5Thin: React.CSSProperties;
+    h5ExtraLight: React.CSSProperties;
+    h5Light: React.CSSProperties;
+    h5Normal: React.CSSProperties;
+    h5Medium: React.CSSProperties;
+    h5SemiBold: React.CSSProperties;
+    h5Bold: React.CSSProperties;
+    // h6
+    h6Thin: React.CSSProperties;
+    h6ExtraLight: React.CSSProperties;
+    h6Light: React.CSSProperties;
+    h6Normal: React.CSSProperties;
+    h6Medium: React.CSSProperties;
+    h6SemiBold: React.CSSProperties;
+    h6Bold: React.CSSProperties;
+  }
+  // allow configuration using `createTheme()`
+  interface TypographyVariantsOptions {
+    // h1
+    h1Thin?: React.CSSProperties;
+    h1ExtraLight?: React.CSSProperties;
+    h1Light?: React.CSSProperties;
+    h1Normal?: React.CSSProperties;
+    h1Medium?: React.CSSProperties;
+    h1SemiBold?: React.CSSProperties;
+    h1Bold?: React.CSSProperties;
+    // h2
+    h2Thin?: React.CSSProperties;
+    h2ExtraLight?: React.CSSProperties;
+    h2Light?: React.CSSProperties;
+    h2Normal?: React.CSSProperties;
+    h2Medium?: React.CSSProperties;
+    h2SemiBold?: React.CSSProperties;
+    h2Bold?: React.CSSProperties;
+    // h3
+    h3Thin?: React.CSSProperties;
+    h3ExtraLight?: React.CSSProperties;
+    h3Light?: React.CSSProperties;
+    h3Normal?: React.CSSProperties;
+    h3Medium?: React.CSSProperties;
+    h3SemiBold?: React.CSSProperties;
+    h3Bold?: React.CSSProperties;
+    // h4
+    h4Thin?: React.CSSProperties;
+    h4ExtraLight?: React.CSSProperties;
+    h4Light?: React.CSSProperties;
+    h4Normal?: React.CSSProperties;
+    h4Medium?: React.CSSProperties;
+    h4SemiBold?: React.CSSProperties;
+    h4Bold?: React.CSSProperties;
+    // h5
+    h5Thin?: React.CSSProperties;
+    h5ExtraLight?: React.CSSProperties;
+    h5Light?: React.CSSProperties;
+    h5Normal?: React.CSSProperties;
+    h5Medium?: React.CSSProperties;
+    h5SemiBold?: React.CSSProperties;
+    h5Bold?: React.CSSProperties;
+    // h6
+    h6Thin?: React.CSSProperties;
+    h6ExtraLight?: React.CSSProperties;
+    h6Light?: React.CSSProperties;
+    h6Normal?: React.CSSProperties;
+    h6Medium?: React.CSSProperties;
+    h6SemiBold?: React.CSSProperties;
+    h6Bold?: React.CSSProperties;
+  }
+}
+
+// Update the Typography's variant prop options
+declare module '@mui/material/Typography' {
+  interface TypographyPropsVariantOverrides {
+    // h1
+    h1Thin: true;
+    h1ExtraLight: true;
+    h1Light: true;
+    h1Normal: true;
+    h1Medium: true;
+    h1SemiBold: true;
+    h1Bold: true;
+    // h2
+    h2Thin: true;
+    h2ExtraLight: true;
+    h2Light: true;
+    h2Normal: true;
+    h2Medium: true;
+    h2SemiBold: true;
+    h2Bold: true;
+    // h3
+    h3Thin: true;
+    h3ExtraLight: true;
+    h3Light: true;
+    h3Normal: true;
+    h3Medium: true;
+    h3SemiBold: true;
+    h3Bold: true;
+    // h4
+    h4Thin: true;
+    h4ExtraLight: true;
+    h4Light: true;
+    h4Normal: true;
+    h4Medium: true;
+    h4SemiBold: true;
+    h4Bold: true;
+    // h5
+    h5Thin: true;
+    h5ExtraLight: true;
+    h5Light: true;
+    h5Normal: true;
+    h5Medium: true;
+    h5SemiBold: true;
+    h5Bold: true;
+    // h6
+    h6Thin: true;
+    h6ExtraLight: true;
+    h6Light: true;
+    h6Normal: true;
+    h6Medium: true;
+    h6SemiBold: true;
+    h6Bold: true;
+  }
+}

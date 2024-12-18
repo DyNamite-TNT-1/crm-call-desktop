@@ -1,4 +1,4 @@
-import { PaletteColorOptions, SimplePaletteColorOptions } from '@mui/material';
+import { SimplePaletteColorOptions } from '@mui/material';
 
 // ==============================|| DEFAULT THEME - TYPES  ||============================== //
 
