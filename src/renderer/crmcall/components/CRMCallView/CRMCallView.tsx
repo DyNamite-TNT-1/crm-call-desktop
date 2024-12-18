@@ -2,7 +2,7 @@ import { Typography, useTheme } from '@mui/material';
 import React, { useState } from 'react';
 import CRMSelectBox from '../CRMSelectBox';
 import { OptionValue } from '@renderer/base/types/common';
-import EnhancedTextField from '../TextField/EnhancedTextField';
+import HanTextField from '../TextField/HanTextField';
 import {
   CallValue,
   CallDirectionValue,
@@ -96,7 +96,7 @@ const CRMCallView = () => {
         </div>
         <div className="h-flex-row h-cgap-4" style={{ flex: 1 }}>
           <Label>Call Duration</Label>
-          <EnhancedTextField
+          <HanTextField
             value={callValue.callDuration.toString()}
             onChange={handleChangeCallDuration}
             endAdornment={
@@ -127,10 +127,10 @@ const CRMCallView = () => {
               width: '75%',
             }}
           >
-            <EnhancedTextField
+            <HanTextField
               value={callValue.phone}
               onChange={handleChangePhone}
-            ></EnhancedTextField>
+            ></HanTextField>
             <CRMSelectBox
               size="small"
               options={PHONE_TYPES}
@@ -162,10 +162,7 @@ const CRMCallView = () => {
               width: '75%',
             }}
           >
-            <EnhancedTextField
-              value={callValue.name}
-              disabled
-            ></EnhancedTextField>
+            <HanTextField value={callValue.name} disabled></HanTextField>
           </div>
         </div>
         <div
@@ -187,10 +184,7 @@ const CRMCallView = () => {
               width: '75%',
             }}
           >
-            <EnhancedTextField
-              value={callValue.company}
-              disabled
-            ></EnhancedTextField>
+            <HanTextField value={callValue.company} disabled></HanTextField>
           </div>
         </div>
       </SectionContainer>

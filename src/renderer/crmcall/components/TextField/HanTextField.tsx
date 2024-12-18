@@ -7,13 +7,14 @@ import {
   FormControlOwnProps,
 } from '@mui/material';
 import { Visibility, VisibilityOff } from '@mui/icons-material';
+import { useTheme } from '@mui/material';
 
 type Props = {
   id?: string;
   name?: string;
   label?: string;
   type?: string;
-  value: string;
+  value?: string;
   required?: boolean;
   disabled?: boolean;
   onChange?:
@@ -22,12 +23,13 @@ type Props = {
   placeholder?: string;
   sx?: SxProps;
   obcureText?: boolean;
+  startAdornment?: React.ReactNode | React.ReactNode[];
   endAdornment?: React.ReactNode | React.ReactNode[];
   margin?: FormControlOwnProps['margin'];
   pattern?: string;
 };
 
-const EnhancedTextField = (props: Props) => {
+const HanTextField = (props: Props) => {
   const {
     id,
     name,
@@ -40,10 +42,13 @@ const EnhancedTextField = (props: Props) => {
     placeholder = '',
     sx,
     obcureText,
+    startAdornment,
     endAdornment,
     margin = 'none',
     pattern,
   } = props;
+
+  const theme = useTheme();
 
   const [isObcureText, setIsObcureText] = useState(obcureText ?? false);
 
@@ -82,6 +87,22 @@ const EnhancedTextField = (props: Props) => {
     ) : null;
   };
 
+  const renderStartAdornment = () => {
+    const adornments: React.ReactNode[] = [];
+    // Add custom adornments passed via props
+    if (startAdornment) {
+      if (Array.isArray(startAdornment)) {
+        adornments.push(...startAdornment);
+      } else {
+        adornments.push(startAdornment);
+      }
+    }
+
+    return adornments.length > 0 ? (
+      <InputAdornment position="start">{adornments}</InputAdornment>
+    ) : null;
+  };
+
   return (
     <TextField
       fullWidth
@@ -91,20 +112,36 @@ const EnhancedTextField = (props: Props) => {
       disabled={disabled}
       id={id}
       name={name}
-      label={label}
+      // label={label}
       type={isObcureText ? 'password' : type}
       value={value}
       onChange={onChange}
       placeholder={placeholder}
       sx={{
         '& .MuiOutlinedInput-root': {
-          p: '0px',
           height: '40px',
+          backgroundColor: theme.palette.action.active,
+          borderRadius: '10px',
+          '&:hover .MuiOutlinedInput-notchedOutline': {
+            borderWidth: 0,
+          },
+          '&.Mui-focused': {
+            '& .MuiOutlinedInput-notchedOutline': {
+              borderWidth: 0,
+            },
+          },
+        },
+        '& .MuiOutlinedInput-notchedOutline': {
+          borderWidth: 0,
+        },
+        '& .MuiInputAdornment-positionStart': {
+          marginRight: 0,
         },
         ...sx,
       }}
       slotProps={{
         input: {
+          startAdornment: renderStartAdornment(),
           endAdornment: renderEndAdornment(),
         },
         htmlInput: {
@@ -115,4 +152,4 @@ const EnhancedTextField = (props: Props) => {
   );
 };
 
-export default EnhancedTextField;
+export default HanTextField;

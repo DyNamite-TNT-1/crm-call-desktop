@@ -111,10 +111,7 @@ const SlideLeftMenu = () => {
     <div
       className="h-flex-col h-fill-h h-center-between"
       style={{
-        backgroundColor:
-          theme.palette.mode == 'light'
-            ? theme.palette.primary.main
-            : theme.palette.background.paper,
+        backgroundColor: theme.palette.text.primary,
         width: SLIDE_LEFT_MENU_WIDTH,
       }}
     >
@@ -172,6 +169,8 @@ export default SlideLeftMenu;
 
 const SLAvatar = (props: { src: string }) => {
   const { src } = props;
+  const theme = useTheme();
+
   return (
     <ListItem key={'avatar'} disablePadding>
       <ListItemAvatar
@@ -180,6 +179,7 @@ const SLAvatar = (props: { src: string }) => {
           height: '60px',
           width: SLIDE_LEFT_MENU_WIDTH,
           display: 'flex',
+          backgroundColor: theme.palette.text.primary,
         }}
       >
         <Avatar src={src} />
@@ -194,6 +194,7 @@ const SLButton = (props: {
   children: React.ReactElement;
 }) => {
   const { onClick, title, children } = props;
+  const theme = useTheme();
 
   return (
     <CRMToolTip title={title} aria-label={title}>
@@ -201,7 +202,11 @@ const SLButton = (props: {
         <ListItemButton
           className="h-just-center"
           onClick={onClick}
-          sx={{ height: '60px', width: SLIDE_LEFT_MENU_WIDTH }}
+          sx={{
+            height: '60px',
+            width: SLIDE_LEFT_MENU_WIDTH,
+            backgroundColor: theme.palette.text.primary,
+          }}
         >
           {children}
         </ListItemButton>
