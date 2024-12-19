@@ -1,0 +1,44 @@
+@keyframes animationLevel2 {
+  50% {
+    background-color: rgba(12, 142, 54, 0.05); /* colorComing0D */
+  }
+}
+
+@keyframes animationLevel1 {
+  50% {
+    background-color: rgba(12, 142, 54, 0.1); /* colorComing1A */
+  }
+}
+
+.wrapIconLv2 {
+  width: 90px;
+  height: 90px;
+  border-radius: 50%;
+  background: rgba(12, 142, 54, 0.1); /* colorComing1A */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  animation: animationLevel2 1s infinite linear;
+}
+
+.wrapIconLv1 {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  background: rgba(12, 142, 54, 0.26); /* colorComing42 */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  animation: animationLevel1 1s infinite linear;
+}
+
+.wrapIcon {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background: #0C8E36; /* colorComing */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
