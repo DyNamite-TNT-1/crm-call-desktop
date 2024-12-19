@@ -58,9 +58,6 @@ const CRMDialog = (props: Props) => {
       onClose={handleOnClose}
       open={isOpen}
       sx={{
-        // '& .MuiDialog-container': {
-        //   alignItems: 'start',
-        // },
         ...sxDialog,
       }}
     >
@@ -68,7 +65,7 @@ const CRMDialog = (props: Props) => {
         <div
           className="h-flex-row h-center-between"
           style={{
-            height: '24px',
+            height: '40px',
             padding: '12px',
             backgroundColor: theme.palette.action.hover,
           }}

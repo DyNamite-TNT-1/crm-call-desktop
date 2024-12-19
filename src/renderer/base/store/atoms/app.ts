@@ -2,7 +2,7 @@ import { DefaultAppConfigProps } from '@renderer/base/types/app';
 import { atom } from 'recoil';
 
 export const defaultAppConfig: DefaultAppConfigProps = {
-  fontFamily: `'Lato',sans-serif`,
+  fontFamily: `'IBM Plex Sans',sans-serif`,
   i18n: 'en',
   mode: 'light',
   presetColor: 'default',

@@ -36,10 +36,10 @@ const Palette = (mode: ThemeMode, presetColor: PresetColor) => {
         primary: textColor.primary,
         secondary: textColor.secondary,
       },
-      action: {
-        active: otherColor.softGrey,
-      },
       divider: otherColor.stroke,
+      background: {
+        paper: otherColor.softGrey,
+      },
     },
   });
 };
