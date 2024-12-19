@@ -12,6 +12,7 @@ import { useMemo } from 'react';
 import Palette from './palette';
 import Typography from './typography';
 import { CssBaseline } from '@mui/material';
+import { setGlobalStyles } from './globalStyles';
 
 export default function ThemeCustomization({
   children,
@@ -58,6 +59,7 @@ export default function ThemeCustomization({
     <StyledEngineProvider injectFirst>
       <ThemeProvider theme={themes}>
         <CssBaseline />
+        {setGlobalStyles(themes)}
         {children}
       </ThemeProvider>
     </StyledEngineProvider>
