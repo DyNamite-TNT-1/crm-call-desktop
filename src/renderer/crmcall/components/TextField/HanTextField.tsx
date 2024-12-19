@@ -120,7 +120,7 @@ const HanTextField = (props: Props) => {
       sx={{
         '& .MuiOutlinedInput-root': {
           height: '40px',
-          backgroundColor: theme.palette.action.active,
+          backgroundColor: theme.palette.background.paper,
           borderRadius: '10px',
           '&:hover .MuiOutlinedInput-notchedOutline': {
             borderWidth: 0,

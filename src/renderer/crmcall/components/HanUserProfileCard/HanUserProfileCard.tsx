@@ -1,15 +1,13 @@
-import { Avatar, Typography, useTheme } from '@mui/material';
+import { Avatar } from '@mui/material';
 import UserInfo from './UserInfo';
 
-type User = {
-  avatarSrc: string;
-  userName: string;
-  company: string;
-  phone: string;
-};
-
 type Props = {
-  user: User;
+  user: {
+    avatarSrc: string;
+    userName: string;
+    company: string;
+    phone: string;
+  };
 };
 
 const HanUserProfileCard = ({ user }: Props) => {

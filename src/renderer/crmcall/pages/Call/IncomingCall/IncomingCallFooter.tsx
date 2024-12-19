@@ -1,7 +1,11 @@
 import { Button, Typography, useTheme } from '@mui/material';
 import { Schedule } from '@mui/icons-material';
 
-const IncomingCallFooter = () => {
+type Props = {
+  onClickHistory?: () => void;
+};
+
+const IncomingCallFooter = ({ onClickHistory }: Props) => {
   const theme = useTheme();
 
   return (
@@ -20,6 +24,7 @@ const IncomingCallFooter = () => {
       <Button
         variant="outlined"
         color="primary"
+        onClick={onClickHistory}
         startIcon={
           <Schedule
             style={{
