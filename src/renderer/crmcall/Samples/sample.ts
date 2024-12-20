@@ -1,7 +1,13 @@
 import { sentence } from 'txtgen';
 
-import { HistoryRow } from '../types/history';
+import {
+  CallDirectionType,
+  HistoryRow,
+  PhoneType,
+  PriorityType,
+} from '../types/history';
 import { UserRow } from '../types/user';
+import { getRandomIntBetween } from '../utils/number';
 
 const generateUsers = (): UserRow[] => {
   return Object.values({
@@ -21,12 +27,21 @@ const generateCallHistories = (): HistoryRow[] => {
     .map((e, pIndex: number) => {
       const historyId = `history_${pIndex}`;
       const randomSubject = sentence();
+      const duration = getRandomIntBetween(0, 60);
 
       return {
         id: historyId,
-        customerId: 'mem1',
+        direction: CallDirectionType.INCOMING,
+        duration: duration,
+        phone: '09xxxxx123',
+        phoneType: PhoneType.TELEPHONE,
+        company: 'Guest',
+        authorName: 'DyNamite',
+        regDate: Date.now(),
+        priority: PriorityType.NORMAL,
+        assignedName: 'Michael',
         subject: randomSubject,
-        authorName: 'Author',
+        content: '',
       };
     });
 };

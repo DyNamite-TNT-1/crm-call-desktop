@@ -11,9 +11,9 @@ import {
 import { OptionValueIcon } from '@renderer/base/types/common';
 
 type Props = {
-  value: OptionValueIcon | undefined;
+  value?: OptionValueIcon;
   options: OptionValueIcon[];
-  onChange: (val: OptionValueIcon) => void;
+  onChange?: (val: OptionValueIcon) => void;
   size?: 'small' | 'medium' | undefined;
   sx?: SxProps;
   disablePortal?: boolean;
@@ -30,7 +30,7 @@ type Props = {
    */
   needConfirmBeforeChange?: boolean;
   fullWidth?: boolean;
-}
+};
 
 const CRMSelectBox = (props: Props) => {
   const {
@@ -67,23 +67,13 @@ const CRMSelectBox = (props: Props) => {
     const foundItem = options.find(
       (v) => v.keyName == newValue,
     ) as OptionValueIcon;
-    onChange && onChange(foundItem);
+    onChange?.(foundItem);
   };
 
   const onClearValue = () => {
     setSelectedValue('');
-    onChange && onChange({ keyName: '', languageKey: '', icon: undefined });
+    onChange?.({ keyName: '', languageKey: '', icon: undefined });
   };
-
-  const colorIcon = useMemo(() => {
-    return colorIconType == 'light'
-      ? theme.palette.mode === 'dark'
-        ? theme.palette.grey[200]
-        : theme.palette.grey.A200
-      : theme.palette.mode === 'dark'
-        ? theme.palette.grey[400]
-        : theme.palette.grey[700];
-  }, [colorIconType, theme.palette.mode]);
 
   return (
     <Select
@@ -102,10 +92,6 @@ const CRMSelectBox = (props: Props) => {
           display: useClear && selectedValue ? 'none' : '',
         },
         '&.Mui-focused .MuiIconButton-root': { color: 'primary.main' },
-        '& .MuiSelect-icon': {
-          opacity: 1,
-          color: colorIcon,
-        },
         '&:hover .MuiSelect-icon, &.Mui-focused .MuiSelect-icon': {
           color: (theme) => theme.palette.primary.main,
         },
@@ -127,14 +113,27 @@ const CRMSelectBox = (props: Props) => {
                   />
                 )}
                 {selectedOption?.languageKey && (
-                  <Typography lineHeight={'24px'}>
+                  <Typography
+                    variant={'h4Normal'}
+                    sx={{
+                      lineHeight: '24px',
+                    }}
+                  >
                     {selectedOption.languageKey}
                   </Typography>
                 )}
                 {selectedOption?.icon && selectedOption.icon}
               </>
             ) : (
-              <Typography color={'secondary'}>{placeholder}</Typography>
+              <Typography
+                variant={'h4Normal'}
+                color={theme.palette.text.secondary}
+                sx={{
+                  lineHeight: '24px',
+                }}
+              >
+                {placeholder}
+              </Typography>
             )}
           </>
         );
