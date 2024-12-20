@@ -86,7 +86,6 @@ const HistoryItemView = (props: Props) => {
           flexGrow: 0,
         }}
       >
-        {/* FIXME - Why this typography no ellipsis when using variant */}
         <Typography
           variant="h4Normal"
           style={{
