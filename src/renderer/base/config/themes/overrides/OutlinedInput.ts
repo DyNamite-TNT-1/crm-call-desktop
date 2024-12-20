@@ -14,7 +14,7 @@ function getColor({ variant, theme }: Props) {
   const { light } = colors;
 
   return {
-    '&:hover .MuiOutlinedInput-notchedOutline': {
+    '&:hover:not(.Mui-disabled) .MuiOutlinedInput-notchedOutline': {
       borderColor: light,
     },
     '&.Mui-focused': {
@@ -34,20 +34,20 @@ export default function OutlinedInput(theme: Theme) {
         input: {
           padding: '10.5px 14px 10.5px 12px',
         },
-        notchedOutline: {
-          borderColor:
-            theme.palette.mode === 'dark'
-              ? theme.palette.grey[200]
-              : theme.palette.grey[300],
-        },
+        notchedOutline: {},
         root: {
+          backgroundColor: theme.palette.background.paper,
+          borderRadius: '10px',
+          '& .MuiInputAdornment-positionStart': {
+            marginRight: 0,
+          },
           ...getColor({ variant: 'primary', theme }),
           '&.Mui-error': {
             ...getColor({ variant: 'error', theme }),
           },
         },
         inputSizeSmall: {
-          padding: '7.5px 8px 7.5px 12px',
+          padding: '8.5px 12px',
         },
         inputMultiline: {
           padding: 0,

@@ -26,6 +26,7 @@ type Props = {
   startAdornment?: React.ReactNode | React.ReactNode[];
   endAdornment?: React.ReactNode | React.ReactNode[];
   margin?: FormControlOwnProps['margin'];
+  variant?: FormControlOwnProps['variant'];
   pattern?: string;
 };
 
@@ -45,6 +46,7 @@ const HanTextField = (props: Props) => {
     startAdornment,
     endAdornment,
     margin = 'none',
+    variant,
     pattern,
   } = props;
 
@@ -117,26 +119,8 @@ const HanTextField = (props: Props) => {
       value={value}
       onChange={onChange}
       placeholder={placeholder}
+      variant={variant}
       sx={{
-        '& .MuiOutlinedInput-root': {
-          height: '40px',
-          backgroundColor: theme.palette.background.paper,
-          borderRadius: '10px',
-          '&:hover .MuiOutlinedInput-notchedOutline': {
-            borderWidth: 0,
-          },
-          '&.Mui-focused': {
-            '& .MuiOutlinedInput-notchedOutline': {
-              borderWidth: 0,
-            },
-          },
-        },
-        '& .MuiOutlinedInput-notchedOutline': {
-          borderWidth: 0,
-        },
-        '& .MuiInputAdornment-positionStart': {
-          marginRight: 0,
-        },
         ...sx,
       }}
       slotProps={{

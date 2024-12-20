@@ -8,6 +8,7 @@ const HanSearchField = () => {
 
   return (
     <HanTextField
+      variant="filled"
       placeholder="Search ..."
       startAdornment={
         <IcSearch
