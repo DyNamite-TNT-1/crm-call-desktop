@@ -12,6 +12,7 @@ const HanHistoryHeader = (props: { colSize: string[] }) => {
       style={{
         height: historyHeaderHeight,
         borderBottom: `1px solid ${theme.palette.divider}`,
+        backgroundColor: theme.palette.background.paper,
       }}
     >
       <div
@@ -21,30 +22,18 @@ const HanHistoryHeader = (props: { colSize: string[] }) => {
           flexGrow: 0,
         }}
       >
-        <Typography
-          variant={'h5Normal'}
-          sx={{
-            color: theme.palette.text.secondary,
-          }}
-        >
-          Name
-        </Typography>
+        <Typography variant={'h5Medium'}>Name</Typography>
       </div>
       <div
         style={{
           maxWidth: colSize[1],
           flexBasis: colSize[1],
           flexGrow: 0,
+          display: 'flex',
+          justifyContent: 'center',
         }}
       >
-        <Typography
-          variant={'h5Normal'}
-          sx={{
-            color: theme.palette.text.secondary,
-          }}
-        >
-          Activity
-        </Typography>
+        <Typography variant={'h5Medium'}>Activity</Typography>
       </div>
       <div
         style={{
@@ -53,14 +42,7 @@ const HanHistoryHeader = (props: { colSize: string[] }) => {
           flexGrow: 0,
         }}
       >
-        <Typography
-          variant={'h5Normal'}
-          sx={{
-            color: theme.palette.text.secondary,
-          }}
-        >
-          Staff
-        </Typography>
+        <Typography variant={'h5Medium'}>Staff</Typography>
       </div>
       <div
         style={{
@@ -69,14 +51,7 @@ const HanHistoryHeader = (props: { colSize: string[] }) => {
           flexGrow: 0,
         }}
       >
-        <Typography
-          variant={'h5Normal'}
-          sx={{
-            color: theme.palette.text.secondary,
-          }}
-        >
-          Subject
-        </Typography>
+        <Typography variant={'h5Medium'}>Subject</Typography>
       </div>
     </div>
   );

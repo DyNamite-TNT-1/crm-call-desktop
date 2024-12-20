@@ -36,6 +36,8 @@ const HistoryItemView = (props: Props) => {
           maxWidth: historyColSize[1],
           flexBasis: historyColSize[1],
           flexGrow: 0,
+          display: 'flex',
+          justifyContent: 'center',
         }}
       >
         <div
