@@ -18,7 +18,7 @@ const IncomingCall = () => {
   };
 
   return (
-    <div className="h-flex-row">
+    <div className="h-flex-row h-fill-h">
       <div
         className="h-flex-col"
         style={{

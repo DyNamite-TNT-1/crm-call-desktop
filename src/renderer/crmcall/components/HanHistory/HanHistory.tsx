@@ -15,7 +15,6 @@ const HanHistory = () => {
   return (
     <div className="h-flex-col h-fill-h h-fill-w">
       <HanHistoryHeader colSize={historyColSize} />
-      {/* FIXME - This list is not scrollable */}
       <List
         sx={{
           height: `calc(100% - ${historyHeaderHeight}px)`,
